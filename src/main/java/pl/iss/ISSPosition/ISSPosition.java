@@ -12,9 +12,7 @@ public class ISSPosition {
 
     @Override
     public String toString() {
-        return "ISSPosition{" +
-                "longitude=" + longitude +
-                ", latitude=" + latitude +
-                '}';
+        return "Longitude:  " + longitude + "\n" +
+                "Latitude :  " + latitude;
     }
 }

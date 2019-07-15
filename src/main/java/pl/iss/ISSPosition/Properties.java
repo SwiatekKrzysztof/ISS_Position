@@ -13,10 +13,9 @@ public class Properties {
 
     @Override
     public String toString() {
-        return "Properties{" +
-                "message='" + message + '\'' +
-                ", ISSPosition=" + iss_position +
-                ", timestamp=" + timestamp +
-                '}';
+        return
+                "ISS Position Reading Attempt: " + message + "\n"
+                + iss_position + "\n" +
+                "Timestamp:  " + timestamp;
     }
 }
