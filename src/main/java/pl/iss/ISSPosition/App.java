@@ -62,7 +62,7 @@ public class App extends Application
         ImageView imageView = new ImageView(image);
         //imageView.setOpacity(0.1);
         sp.getChildren().add(imageView);
-        Scene scene = new Scene(sp,image.getWidth(),image.getHeight());
+        Scene scene = new Scene(sp,image.getWidth(),image.getHeight(),false);
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
 

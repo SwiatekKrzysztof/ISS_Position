@@ -37,8 +37,8 @@ public class PossitionThread implements Runnable {
             System.out.println("Longitude-X= " + x + "  Latitude-Y= " + y);
             locationPoint.setFill(Color.RED);
             locationPoint.setRadius(3);
-            locationPoint.setCenterX(Math.abs(0.5 * w));
-            locationPoint.setCenterY(Math.abs(0.5 * h));
+            locationPoint.setCenterX(Math.abs(x * w));
+            locationPoint.setCenterY(Math.abs(y * h));
             new Circle(Math.abs(x*w),Math.abs(y*h),5,Color.CYAN);
             //Klasa anonimowa
             Platform.runLater(new Runnable() {
