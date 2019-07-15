@@ -42,19 +42,26 @@ public class App extends Application
         Properties properties = new Properties();
 
         initStage(primaryStage,width,height);
-        
-        Circle circle = new Circle(3);
+
+        //CIRCLE MARKING ISS POSITION
+        Circle circle = new Circle();
         circle.setLayoutX(width/2.0);
         circle.setLayoutY(height/2.0);
 
+        //CALIBRATION CIRCLE
         //CENTER CIRCLE "NULL ISLAND"
-        Circle centerC = new Circle(2,Color.IVORY);
-        centerC.setLayoutX(width/2.0);
-        centerC.setLayoutY(height/2.0);
+        //Circle centerC = new Circle(2,Color.IVORY);
+        //centerC.setLayoutX(width/2.0);
 
-        new Thread(new PossitionThread(circle,reader,properties,width,height)).start();
+        //CIRCLE AROUND ISS
+        Circle circleAround = new Circle();
+        circleAround.setLayoutX(width/2.0);
+        circleAround.setLayoutY(height/2.0);
 
-        sp.getChildren().add(centerC);
+        new Thread(new PossitionThread(circle,circleAround,reader,properties,width,height)).start();
+
+        sp.getChildren().add(circleAround);
+        //sp.getChildren().add(centerC);
         sp.getChildren().add(circle);
 
     }
