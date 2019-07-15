@@ -12,6 +12,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Path;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -19,7 +21,6 @@ import java.awt.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import static pl.iss.ISSPosition.CoordinatesConverter.*;
@@ -58,8 +59,14 @@ public class App extends Application
         circleAround.setLayoutX(width/2.0);
         circleAround.setLayoutY(height/2.0);
 
-        new Thread(new PossitionThread(circle,circleAround,reader,properties,width,height)).start();
+        //LINE DESCRIBING PATH OF ISS
+        Path path = new Path();
+        path.setLayoutX(width/2.0);
+        path.setLayoutY(height/2.0);
+        properties = reader.readISSProperties();
+        new Thread(new PossitionThread(circle,circleAround,path,reader,properties,width,height)).start();
 
+        sp.getChildren().add(path);
         sp.getChildren().add(circleAround);
         //sp.getChildren().add(centerC);
         sp.getChildren().add(circle);
