@@ -42,39 +42,26 @@ public class App extends Application
         Properties properties = new Properties();
 
         initStage(primaryStage,width,height);
+        
+        Circle circle = new Circle(3);
+        circle.setLayoutX(width/2.0);
+        circle.setLayoutY(height/2.0);
 
-
-
-        Circle circle = new Circle(3);//,Color.RED);
-        circle.setLayoutX(width/2.0);//primaryStage.getWidth()/2);
-        circle.setLayoutY(height/2.0);//primaryStage.getHeight()/2);
-
-        //CALIBRATION CIRCLES
+        //CENTER CIRCLE "NULL ISLAND"
         Circle centerC = new Circle(2,Color.IVORY);
-        centerC.setLayoutX(width/2.0);//primaryStage.getWidth()/2);
-        centerC.setLayoutY(height/2.0);//primaryStage.getHeight()/2);
-//        centerC.setCenterX(0);
-//        centerC.setCenterY(0);
+        centerC.setLayoutX(width/2.0);
+        centerC.setLayoutY(height/2.0);
 
-        new Thread(new PossitionThread(sp,circle,reader,properties,width,height)).start();
+        new Thread(new PossitionThread(circle,reader,properties,width,height)).start();
 
         sp.getChildren().add(centerC);
         sp.getChildren().add(circle);
 
-
-            //PossitionThread possitionThread = new PossitionThread(circle,reader,properties,width,height);
-
-
-
     }
     public void initStage(Stage primaryStage,double width, double height){
-
-
         Image image = new Image("http://flatplanet.sourceforge.net/maps/images/PathfinderMap.jpg"
                 ,width,height,true,true);
-        //https://upload.wikimedia.org/wikipedia/commons/7/74/Mercator-projection.jpg
         ImageView imageView = new ImageView(image);
-        //imageView.setOpacity(0.1);
         sp.getChildren().add(imageView);
         Scene scene = new Scene(sp,image.getWidth(),image.getHeight(),false);
         primaryStage.setResizable(false);

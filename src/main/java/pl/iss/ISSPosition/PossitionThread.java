@@ -11,7 +11,6 @@ import static pl.iss.ISSPosition.CoordinatesConverter.EQUATOR;
 import static pl.iss.ISSPosition.CoordinatesConverter.MERIDIAN;
 
 public class PossitionThread implements Runnable {
-    Group group;
     Circle locationPoint;
     Reader reader;
     Properties properties;
@@ -19,8 +18,7 @@ public class PossitionThread implements Runnable {
     double h;
 
 
-    public PossitionThread(Group pane, Circle locationPoint, Reader reader, Properties properties, double width, double height) {
-        this.group = group;
+    public PossitionThread(Circle locationPoint, Reader reader, Properties properties, double width, double height) {
         this.locationPoint = locationPoint;
         this.reader = reader;
         this.properties = properties;
@@ -36,21 +34,15 @@ public class PossitionThread implements Runnable {
             double x = CoordinatesConverter.longitudeToX(properties.getIss_position().getLongitude()) ;// EQUATOR;
             double y = CoordinatesConverter.latitudeToY(properties.getIss_position().getLatitude()) ;// MERIDIAN;
             System.out.println(properties.getIss_position()+ "\n");
-            //System.out.println("Longitude-X= " + (x * w)  + "  Latitude-Y= " + (y * h));
+
             double widthToEquator = w/EQUATOR;
             double heightToMeridian = h/MERIDIAN;
             locationPoint.setFill(Color.CYAN);
             locationPoint.setRadius(4);
             locationPoint.setCenterX((x * widthToEquator));
+            // - below comes from javaFX different possitive and negative values distribution than normal graph
             locationPoint.setCenterY(-(y * heightToMeridian));
-            new Circle(Math.abs(x*w),Math.abs(y*h),5,Color.CYAN);
-            //Klasa anonimowa
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    //locationPoint = new Circle(3,x*w,y*h,Color.RED);
-                }
-            });
+
             try {
                 Thread.sleep(5000);
             } catch (InterruptedException e) {
