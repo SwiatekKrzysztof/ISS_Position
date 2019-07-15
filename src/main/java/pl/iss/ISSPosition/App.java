@@ -4,6 +4,7 @@ package pl.iss.ISSPosition;
 import javafx.application.Application;
 import javafx.geometry.Point2D;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -25,7 +26,7 @@ import static pl.iss.ISSPosition.CoordinatesConverter.*;
 
 public class App extends Application
 {
-    public static final Pane sp = new Pane();
+    public static final Group sp = new Group();
     public static void main( String[] args )
     {
         launch(args);
@@ -41,10 +42,23 @@ public class App extends Application
         Properties properties = new Properties();
 
         initStage(primaryStage,width,height);
-        Circle circle = new Circle(3,Color.RED);
-        circle.setLayoutX(30.0);
-        circle.setLayoutY(30.0);
+
+
+
+        Circle circle = new Circle(3);//,Color.RED);
+        circle.setLayoutX(width/2.0);//primaryStage.getWidth()/2);
+        circle.setLayoutY(height/2.0);//primaryStage.getHeight()/2);
+
+        //CALIBRATION CIRCLES
+        Circle centerC = new Circle(2,Color.IVORY);
+        centerC.setLayoutX(width/2.0);//primaryStage.getWidth()/2);
+        centerC.setLayoutY(height/2.0);//primaryStage.getHeight()/2);
+//        centerC.setCenterX(0);
+//        centerC.setCenterY(0);
+
         new Thread(new PossitionThread(sp,circle,reader,properties,width,height)).start();
+
+        sp.getChildren().add(centerC);
         sp.getChildren().add(circle);
 
 
@@ -67,5 +81,6 @@ public class App extends Application
         primaryStage.setScene(scene);
 
         primaryStage.show();
+        System.out.println(primaryStage.getWidth()+" "+primaryStage.getHeight());
     }
 }
