@@ -1,4 +1,4 @@
-package pl.iss.ISSPosition;
+package pl.iss.ISSPosition.position;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

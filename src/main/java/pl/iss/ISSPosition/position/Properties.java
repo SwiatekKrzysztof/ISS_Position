@@ -1,12 +1,15 @@
-package pl.iss.ISSPosition;
+package pl.iss.ISSPosition.position;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pl.iss.ISSPosition.position.ISSPosition;
+
+import java.util.Observable;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Properties {
+public class Properties extends Observable {
     private String message;
     private ISSPosition iss_position;
     private long timestamp;

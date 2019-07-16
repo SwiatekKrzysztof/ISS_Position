@@ -1,6 +1,7 @@
-package pl.iss.ISSPosition;
+package pl.iss.ISSPosition.position;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import pl.iss.ISSPosition.position.Properties;
 
 import java.io.IOException;
 import java.net.URL;

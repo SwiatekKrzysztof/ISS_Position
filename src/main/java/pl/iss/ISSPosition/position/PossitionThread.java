@@ -1,14 +1,10 @@
-package pl.iss.ISSPosition;
+package pl.iss.ISSPosition.position;
 
-import javafx.application.Platform;
-import javafx.scene.Group;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
-import javafx.stage.Stage;
 
-import static pl.iss.ISSPosition.CoordinatesConverter.EQUATOR;
-import static pl.iss.ISSPosition.CoordinatesConverter.MERIDIAN;
+import static pl.iss.ISSPosition.position.CoordinatesConverter.EQUATOR;
+import static pl.iss.ISSPosition.position.CoordinatesConverter.MERIDIAN;
 
 public class PossitionThread implements Runnable {
     Circle locationPoint;

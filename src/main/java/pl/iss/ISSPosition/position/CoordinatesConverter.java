@@ -1,4 +1,4 @@
-package pl.iss.ISSPosition;
+package pl.iss.ISSPosition.position;
 
 public class CoordinatesConverter {
         public static final double RADIUS = 6378137.0; /* in meters on the equator */
