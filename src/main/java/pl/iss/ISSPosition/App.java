@@ -73,12 +73,14 @@ public class App extends Application
                 ,width,height,true,true);
         ImageView imageView = new ImageView(image);
         sp.getChildren().add(imageView);
+        primaryStage.setTitle("ISS Position ~~ CLICK SPACE to get Photo ~~");
         Scene scene = new Scene(sp,image.getWidth(),image.getHeight(),false);
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
 
         primaryStage.show();
         //System.out.println(primaryStage.getWidth()+" "+primaryStage.getHeight());
+        scene.getWindow().sizeToScene();
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
